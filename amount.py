@@ -2,7 +2,7 @@
 import subprocess
 def getDiskList():
   new_arr = []
-  child = subprocess.Popen(['sudo','fdisk','-l'],stdout=subprocess.PIPE)
+  child = subprocess.Popen(['fdisk','-l'],stdout=subprocess.PIPE)
   child.wait()
   a = child.stdout.readlines()
   for i in range(len(a)):
@@ -14,7 +14,7 @@ def getDiskList():
 
 def getDiskUUID():
   new_arr = []
-  child = subprocess.Popen(['sudo','blkid'],stdout=subprocess.PIPE)
+  child = subprocess.Popen(['blkid'],stdout=subprocess.PIPE)
   child.wait()
   a = child.stdout.readlines()
   for i in a:
