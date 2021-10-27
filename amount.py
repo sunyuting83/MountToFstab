@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 import subprocess
-import os
 def getDiskList():
   new_arr = []
   child = subprocess.Popen(['sudo','fdisk','-l'],stdout=subprocess.PIPE)
@@ -55,5 +54,5 @@ if __name__ == '__main__':
       number = str(i+1)
       x = "UUID="+dlist[i][1]+"\t/plots/plots"+number.zfill(2)+"\t"+dlist[i][2]+"\tdefault\t0\t0\n"
       fstab += x
-    with open("/etc/fstab1", "w+") as fh:
+    with open("/etc/fstab", "w+") as fh:
       fh.write(fstab)
