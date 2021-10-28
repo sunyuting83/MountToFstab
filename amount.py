@@ -52,7 +52,7 @@ if __name__ == '__main__':
     fstab = ""
     for i in range(len(dlist)):
       number = str(i+1)
-      x = "UUID="+dlist[i][1]+"\t/plots/plots"+number.zfill(2)+"\t"+dlist[i][2]+"\tdefault\t0\t0\n"
+      x = "UUID="+dlist[i][1]+"\t/plots/plots"+number.zfill(2)+"\t"+dlist[i][2]+"\tnosuid,nodev,nofail,x-systemd.automount,x-gvfs-show,x-systemd.device-timeout=30\t0\t0\n"
       fstab += x
     with open("/etc/fstab", "w+") as fh:
       fh.write(fstab)
